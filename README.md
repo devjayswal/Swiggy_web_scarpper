@@ -1,2 +1,1 @@
-# Swiggy_web_scarpper
-This repo contains  source code of  Swiggy Web Scrapper
+This is a python tool created by me to extract all data like dish ,rating ,price ,cuisine ,etc from swiggy website.

@@ -1,0 +1,17 @@
+# Ignore the scrape directory
+scrap/
+
+# Ignore the __pycache__ directory
+__pycache__/
+
+# Ignore all .pyc files
+*.pyc
+
+# Ignore all .csv files
+*.csv
+
+# Ignore all .log files
+*.log
+
+# Ignore all .txt files
+*.txt
