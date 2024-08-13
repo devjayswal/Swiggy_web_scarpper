@@ -138,7 +138,7 @@ def process_url(url):
                     print('Button clicked')
                     time.sleep(random.uniform(3, 5))
                     
-                    if time.time() - t1 > 1000:
+                    if time.time() - t1 > 10:
                         break
                     driver.execute_script("window.scrollBy(0, 1000);")
                 except TimeoutException:
@@ -152,14 +152,14 @@ def process_url(url):
             soup = BeautifulSoup(page_source, features='lxml')
             grid = soup.find('div', class_='sc-gLLvby jXGZuP')
             a_tags = grid.find_all('a')
-            fp = open(os.path.join(path_to_file, 'resto_links.txt'), 'a+')
+            fp = open(os.path.join(path_to_file, 'resto_links.csv'), 'a+')
             for tag in a_tags:
                 print(tag['href'])
                 fp.write(f"{tag['href']}\n")
             print('Prospect done')
             fp.close()
             
-            return os.path.join(path_to_file, 'resto_links.txt')
+            return os.path.join(path_to_file, 'resto_links.csv')
         
         except Exception as e:
             print(f"Error processing URL {url}: {e}")
@@ -228,7 +228,7 @@ def extract_dishes_data(url):
     return []
 
 def main():
-    #path_of_resto_link = process_url('https://www.swiggy.com/city/lucknow') 
+    path_of_resto_link = process_url('https://www.swiggy.com/city/lucknow') 
 
     urls = []
     with open(os.path.join(path_to_file, 'resto_links.csv'), 'r') as offer_file:
